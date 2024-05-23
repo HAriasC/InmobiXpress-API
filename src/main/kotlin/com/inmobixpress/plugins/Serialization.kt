@@ -1,4 +1,4 @@
-package com.inmobiXpress.plugins
+package com.inmobixpress.plugins
 
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*

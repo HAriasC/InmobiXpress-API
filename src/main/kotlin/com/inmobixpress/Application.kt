@@ -1,6 +1,6 @@
-package com.inmobiXpress
+package com.inmobixpress
 
-import com.inmobiXpress.plugins.*
+import com.inmobixpress.plugins.*
 import io.ktor.server.application.*
 
 fun main(args: Array<String>) {

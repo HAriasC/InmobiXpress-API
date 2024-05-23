@@ -1,4 +1,4 @@
-package com.inmobiXpress.plugins
+package com.inmobixpress.plugins
 
 import io.ktor.server.application.*
 import io.ktor.server.response.*
