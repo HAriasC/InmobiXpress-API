@@ -1,6 +1,6 @@
-package com.example
+package com.inmobiXpress
 
-import com.example.plugins.*
+import com.inmobiXpress.plugins.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import io.ktor.http.*
