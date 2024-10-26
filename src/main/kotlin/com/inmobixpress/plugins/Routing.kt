@@ -10,6 +10,7 @@ import com.inmobixpress.service.featureService
 import com.inmobixpress.service.historicalService
 import com.inmobixpress.service.imageService
 import com.inmobixpress.service.locationService
+import com.inmobixpress.service.loginService
 import com.inmobixpress.service.notificationService
 import com.inmobixpress.service.offerTypeService
 import com.inmobixpress.service.permissionService
@@ -47,6 +48,7 @@ fun Application.configureRouting() {
         historicalService()
         imageService()
         locationService()
+        loginService()
         notificationService()
         offerTypeService()
         permissionService()
