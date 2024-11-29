@@ -17,7 +17,7 @@ data class Property(
     val buildingYear: Int,
     val floor: Int,
     val totalArea: Double,
-    val buildingArea: Double,
+    val builtArea: Double,
     val propertyType: PropertyType,
     val propertyState: PropertyState,
     val location: Location,
@@ -37,7 +37,7 @@ object Properties : IntIdTable(name = "Property") {
     val buildingYear = integer(name = "buildingYear")
     val floor = integer(name = "floor")
     val totalArea = double(name = "totalArea")
-    val buildingArea = double(name = "buildingArea")
+    val builtArea = double(name = "builtArea")
     val propertyType = reference(name = "PropertyType_id", foreign = PropertyTypes)
     val propertyState = reference(name = "PropertyState_id", foreign = PropertyStates)
     val location = reference(name = "Location_id", foreign = Locations)

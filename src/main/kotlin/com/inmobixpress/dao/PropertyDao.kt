@@ -67,7 +67,7 @@ object PropertyDaoImpl : PropertyDao {
             it[buildingYear] = property.buildingYear
             it[floor] = property.floor
             it[totalArea] = property.totalArea
-            it[buildingArea] = property.buildingArea
+            it[builtArea] = property.builtArea
             it[propertyType] = propertyTypeId.id
             it[propertyState] = propertyStateId.id
             it[location] = locationId.id
@@ -105,7 +105,7 @@ object PropertyDaoImpl : PropertyDao {
             it[buildingYear] = property.buildingYear
             it[floor] = property.floor
             it[totalArea] = property.totalArea
-            it[buildingArea] = property.buildingArea
+            it[builtArea] = property.builtArea
             it[propertyType] = propertyTypeId.id
             it[propertyState] = propertyStateId.id
             it[location] = locationId.id
@@ -133,7 +133,7 @@ object PropertyDaoImpl : PropertyDao {
         buildingYear = this[Properties.buildingYear],
         floor = this[Properties.floor],
         totalArea = this[Properties.totalArea],
-        buildingArea = this[Properties.buildingArea],
+        builtArea = this[Properties.builtArea],
         propertyType = findPropertyType(id = this[Properties.propertyType].value),
         propertyState = findPropertyState(id = this[Properties.propertyState].value),
         location = findLocation(id = this[Properties.location].value),
