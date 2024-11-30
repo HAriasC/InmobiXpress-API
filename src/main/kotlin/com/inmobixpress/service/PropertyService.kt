@@ -1,6 +1,7 @@
 package com.inmobixpress.service
 
 import com.inmobixpress.model.Property
+import com.inmobixpress.repository.LocationRepository
 import com.inmobixpress.repository.PropertyRepository
 import io.ktor.http.HttpStatusCode
 import io.ktor.server.application.log
@@ -12,9 +13,11 @@ import io.ktor.server.routing.delete
 import io.ktor.server.routing.get
 import io.ktor.server.routing.post
 import io.ktor.server.routing.put
+import kotlinx.coroutines.delay
 
 fun Route.propertyService() {
     val repository = PropertyRepository()
+    val locationRepository = LocationRepository()
     get(path = "/property") {
         val properties = repository.getAll()
         if (properties.isNotEmpty()) {
@@ -46,6 +49,10 @@ fun Route.propertyService() {
                 status = HttpStatusCode.BadRequest
             )
         call.application.log.debug(property.toString())
+        locationRepository.insert(location = property.location)
+        val location = locationRepository.getAll().last()
+        property.location = location
+        delay(500)
         if (repository.insert(property = property)) {
             call.respondText(
                 text = "Property stored correctly",

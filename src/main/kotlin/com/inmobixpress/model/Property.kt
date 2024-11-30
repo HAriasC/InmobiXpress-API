@@ -20,7 +20,7 @@ data class Property(
     val builtArea: Double,
     val propertyType: PropertyType,
     val propertyState: PropertyState,
-    val location: Location,
+    var location: Location,
     val district: District,
     val user: User
 )

@@ -49,7 +49,7 @@ object PropertyDaoImpl : PropertyDao {
         val locationId = Locations.selectAll().where {
             Locations.id eq property.location.id
         }.map { it.toLocation() }.singleOrNull() ?: return@query false
-        val districtId = PropertyTypes.selectAll().where {
+        val districtId = Districts.selectAll().where {
             Districts.id eq property.district.id
         }.map { it.toDistrict() }.singleOrNull() ?: return@query false
         val userId = Users.selectAll().where {
