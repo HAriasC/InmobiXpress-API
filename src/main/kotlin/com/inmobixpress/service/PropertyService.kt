@@ -54,8 +54,9 @@ fun Route.propertyService() {
         property.location = location
         delay(500)
         if (repository.insert(property = property)) {
+            val last = repository.getAll().last()
             call.respondText(
-                text = "Property stored correctly",
+                text = "Property stored correctly|id:${last.id}",
                 status = HttpStatusCode.Created
             )
         } else {
