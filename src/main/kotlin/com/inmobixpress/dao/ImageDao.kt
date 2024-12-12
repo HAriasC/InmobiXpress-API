@@ -36,7 +36,7 @@ object ImageDaoImpl : ImageDao {
             Properties.id eq image.property.id
         }.map { it.toProperty() }.singleOrNull() ?: return@query false
         Images.insert {
-            it[uri] = image.uri
+            it[url] = image.url
             it[property] = propertyId.id
         }
         return@query true
@@ -47,7 +47,7 @@ object ImageDaoImpl : ImageDao {
             Properties.id eq image.property.id
         }.map { it.toProperty() }.singleOrNull() ?: return@query false
         Images.update({ Properties.id eq id }) {
-            it[uri] = image.uri
+            it[url] = image.url
             it[property] = propertyId.id
         } == 1
     }
@@ -60,7 +60,7 @@ object ImageDaoImpl : ImageDao {
 
     fun ResultRow.toImage() = Image(
         id = this[Images.id].value,
-        uri = this[Images.uri],
+        url = this[Images.url],
         property = findProperty(id = this[Images.property].value)
     )
 
