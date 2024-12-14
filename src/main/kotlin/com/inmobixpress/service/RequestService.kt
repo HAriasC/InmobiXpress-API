@@ -47,8 +47,9 @@ fun Route.requestService() {
             )
         call.application.log.debug(request.toString())
         if (repository.insert(request = request)){
+            val last = repository.getAll().last()
             call.respondText(
-                text = "Request stored correctly",
+                text = "Request stored correctly|id:${last.id}",
                 status = HttpStatusCode.Created
             )
         } else {
