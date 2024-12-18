@@ -26,11 +26,11 @@ data class Property(
 )
 
 object Properties : IntIdTable(name = "Property") {
-    val title = varchar(name = "title", length = 50)
+    val title = varchar(name = "title", length = 300)
     val description = largeText(name = "description")
     val maintenance = double(name = "maintenance")
-    val address = varchar(name = "address", length = 80)
-    val postalCode = varchar(name = "postalCode", length = 10)
+    val address = varchar(name = "address", length = 200)
+    val postalCode = varchar(name = "postalCode", length = 50)
     val nBedroom = integer(name = "nBedroom")
     val nBathroom = double(name = "nBathroom")
     val nGarage = integer(name = "nGarage")
