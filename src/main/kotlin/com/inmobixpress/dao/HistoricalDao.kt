@@ -50,7 +50,9 @@ object HistoricalDaoImpl : HistoricalDao {
         Historicals.insert {
             it[publishingState] = historical.publishingState.id
             it[publishing] = historical.publishing.id
-            it[date] = historical.date
+            it[startDate] = historical.startDate
+            it[finishDate] = historical.finishDate
+            it[contract] = historical.contract
         }
         return@query true
     }
@@ -72,7 +74,9 @@ object HistoricalDaoImpl : HistoricalDao {
         }) {
             it[publishingState] = historical.publishingState.id
             it[publishing] = historical.publishing.id
-            it[date] = historical.date
+            it[startDate] = historical.startDate
+            it[finishDate] = historical.finishDate
+            it[contract] = historical.contract
         } == 1
     }
 
@@ -85,7 +89,9 @@ object HistoricalDaoImpl : HistoricalDao {
     fun ResultRow.toHistorical() = Historical(
         publishingState = findPublishingState(this[Historicals.publishingState].value),
         publishing = findPublishing(this[Historicals.publishing].value),
-        date = this[Historicals.date]
+        startDate = this[Historicals.startDate],
+        finishDate = this[Historicals.finishDate],
+        contract = this[Historicals.contract]
     )
 
     private fun findPublishingState(id: Int) = PublishingStates.selectAll().where {

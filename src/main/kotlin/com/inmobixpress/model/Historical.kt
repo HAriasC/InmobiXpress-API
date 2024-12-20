@@ -10,7 +10,9 @@ import org.jetbrains.exposed.sql.kotlin.datetime.datetime
 data class Historical(
     val publishingState: PublishingState,
     val publishing: Publishing,
-    val date: LocalDateTime
+    val startDate: LocalDateTime,
+    val finishDate: LocalDateTime,
+    val contract: String
 )
 
 object Historicals : CompositeIdTable(name = "Historical") {
@@ -21,7 +23,9 @@ object Historicals : CompositeIdTable(name = "Historical") {
         onDelete = ReferenceOption.CASCADE,
         onUpdate = ReferenceOption.CASCADE
     )
-    val date = datetime(name = "date")
+    val startDate = datetime(name = "startDate")
+    val finishDate = datetime(name = "finishDate")
+    val contract = varchar(name = "contract", length = 2000)
 
     override val primaryKey = PrimaryKey(publishingState, publishing)
 }

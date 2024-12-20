@@ -11,6 +11,6 @@ data class Image(
 )
 
 object Images : IntIdTable(name = "Image") {
-    val url = varchar(name = "url", length = 1000)
+    val url = varchar(name = "url", length = 2000)
     val property = reference(name = "Property_id", foreign = Properties)
 }
